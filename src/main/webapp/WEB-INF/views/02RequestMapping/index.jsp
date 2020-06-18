@@ -22,7 +22,7 @@ $(function(){
 <body>
 <div class="container">
 
-	<h2>@RequestMapping 어노테이션</h2>
+	<h2>@RequestMapping 어노테이션</h2> 
 	
 </div>
 </body>
