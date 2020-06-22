@@ -66,6 +66,13 @@
 	 	</a>
 	 </li>
 	 
+	 <h2>폼 데이터 검증하기</h2>
+    <li>
+       <a href="validate/memberRegist.do" target="_blank" >
+          회원가입 바로가기
+       </a>
+    </li>
+	 
 </body>
 </html>
 
