@@ -21,21 +21,18 @@ $(function(){
 </head>
 <body>
 <div class="container">
+
+	<h2>DI(의존주입)을 활용한 간단한 사칙연산 계산기</h2>
 	
-	<h2>Validator 인터페이스를 구현한 폼값 검증</h2>
+	<h3>200과 100의 사칙연산 결과는?</h3>
 	
-	<h3>유효성 검증 성공 - 회원가입완료</h3>
-	
-	<!-- 
-		@ModelAttribute 어노테이션을 통해 커맨드 객체의 이름을 mInfo로
-		변경했으므로 아래와 같이 출력한다.
-	-->
 	<ul>
-		<li>아이디 : ${mInfo.id }</li>
-		<li>패스워드 : ${mInfo.pw }</li>
-		<li>이름 : ${mInfo.name }</li>
+		<li>덧셈결과 : ${addResult }</li>
+		<li>뺄셈결과 : ${subResult }</li>
+		<li>곱셈결과 : ${mulResult }</li>
+		<li>나눗셈결과 : ${divResult }</li>
 	</ul>
-	
+
 </div>
 </body>
 </html>

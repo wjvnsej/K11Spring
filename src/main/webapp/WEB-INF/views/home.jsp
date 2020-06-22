@@ -35,6 +35,7 @@
 	 </ul>
 	 
 	 
+	 <!-- 컨트롤러 : FormController.java -->
 	 <h3>form값 처리하기</h3>
 	 <li>
 	 	<a href="./form/servletRequest?id=kosmo&pw=1234" target="_blank">
@@ -66,12 +67,25 @@
 	 	</a>
 	 </li>
 	 
-	 <h2>폼 데이터 검증하기</h2>
+	 
+	<!-- 컨트롤러 : validateController.java -->
+	<h2>폼 데이터 검증하기</h2>
     <li>
-       <a href="validate/memberRegist.do" target="_blank" >
-          회원가입 바로가기
+		<a href="validate/memberRegist.do" target="_blank" >
+			회원가입 바로가기
+		</a>
+    </li>
+    
+    
+	<!-- 컨트롤러 : DIController.java -->
+	<h3>DI(Dependency Injection) : 의존성 주입</h3>
+    <li>
+       <a href="di/myCalculator" target="_blank" >
+          	간단한 사칙연산 계산기
        </a>
     </li>
+    
+    
 	 
 </body>
 </html>
