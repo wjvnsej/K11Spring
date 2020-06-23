@@ -21,6 +21,13 @@ public class AppConfiguration {
 	@Bean
 	public BMIInfoView member1() {
 		
+		//BMI지수 계산을 위한 객체(빈) 생성
+		BMICalResult bm = new BMICalResult();
+		bm.setLowWeight(18.5);
+		bm.setNomal(23);
+		bm.setOverWeight(25);
+		bm.setObesity(30);
+		
 		ArrayList<String> hobbys = new ArrayList<String>();
 		hobbys.add("삽질하기");
 		hobbys.add("멍때리기");
@@ -30,6 +37,8 @@ public class AppConfiguration {
 		mem1.setHobbys(hobbys);
 		mem1.setHeight(190);
 		mem1.setWeight(80);
+		//위에서 생성한 bm객체를 통해 멤버변수 초기화
+		mem1.setBmiCalResult(bm);
 		
 		return mem1;
 	}

@@ -22,7 +22,15 @@ $(function(){
 <body>
 <div class="container">
 
-	<h2>Environment 객체를 이용한 외부파일 사용하기</h2>
+	<h2>어노테이션을 이용한 외부파일 읽어오기</h2>
+	
+	<h3>게시판 설정값 읽어오기</h3>
+	<ul>
+		<li>아이디 : ${id }</li>
+		<li>패스워드 : ${pass }</li>
+		<li>드라이버 : ${driver }</li>
+		<li>커넥트URL : ${url }</li>
+	</ul>
 
 </div>
 </body>
