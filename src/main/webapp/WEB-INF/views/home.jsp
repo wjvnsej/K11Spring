@@ -77,29 +77,29 @@
     </li>
     
     
-    <!-- 
-    DI를 활용한 개발순서
-    1. 요청명을 결정 한다.
-    	-> di/myCalculator
+<!-- 
+DI를 활용한 개발순서
+1. 요청명을 결정 한다.
+	-> di/myCalculator
     	
-    2. 컨트롤러를 생성한 후 해당 요청명을 매핑한 메소드 정의
-    	-> 
-    		@RequestMapping("/di/myCalculator")
-    		public String 메소드명(Model model){
-    			수행할내용;
-    		}
+2. 컨트롤러를 생성한 후 해당 요청명을 매핑한 메소드 정의
+   	-> 
+  		@RequestMapping("/di/myCalculator")
+  		public String 메소드명(Model model){
+   			수행할내용;
+   		}
 
-    3. View에 해당하는 jsp파일을 생성한다.
+3. View에 해당하는 jsp파일을 생성한다.
     
-    4. 해당 프로그램에서 사용 할 클래스를 생성한다.
-    	-> src/main/java 아래 패키지 생성 후 클래스를 추가함
+4. 해당 프로그램에서 사용 할 클래스를 생성한다.
+   	-> src/main/java 아래 패키지 생성 후 클래스를 추가함
     
-    5. XML 설정파일을 생성한 후 <bean> 엘리먼트를 통해 빈 생성
-    	-> src/main/resources 하위에 Spring Bean Configration File을 생성함
+5. XML 설정파일을 생성한 후 <bean> 엘리먼트를 통해 빈 생성
+   	-> src/main/resources 하위에 Spring Bean Configration File을 생성함
     
-    6. View로 전달 할 정보를 model객체에 저장한 후 호출
-    	-> String 혹은 ModelAndView 객체를 사용함
-    -->
+6. View로 전달 할 정보를 model객체에 저장한 후 호출
+ 	-> String 혹은 ModelAndView 객체를 사용함
+-->
 	<!-- 컨트롤러 : DIController.java -->
 	<h3>DI(Dependency Injection) : 의존성 주입</h3>
     <li>
@@ -124,6 +124,23 @@
     </li>
     
     
+<!-- 
+Environment 객체를 이용한 외부파일 참조 절차
+
+1. 요청명을 결정한다.
+	: environment/main1
+
+2. 컨트롤러 생성 및 매핑
+
+3. /src/main/resources 폴더 하위에 properties 파일을 생성
+
+4. 컨트롤러에서 외부파일을 읽어서 프로그램에 적용
+	4-1) 스프링 컨테이너 생성
+	4-2) Environment 객체 생성
+	4-3) PropertySources 가져옴
+	4-4) 외부파일을 가져와서 addLast로 추가 후 내용읽음
+	4-5) 읽은 내용을 Model에 저장하거나 비즈니스로직에 직접 사용함
+-->
 	<!-- 컨트롤러 : EnvironmentController.java -->
     <h3>Environment</h3>
     <li>
@@ -143,7 +160,40 @@
     </li>
     
     
-    
+<!-- 
+파일업로드 & 다운로드 구현 절차
+
+1. pom.xml 의존설정
+	<dependency>
+		<groupId>commons-io</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>2.0.1</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-fileupload</groupId>
+		<artifactId>commons-fileupload</artifactId>
+		<version>1.2.2</version>
+	</dependency>
+
+2. servlet-cotext.xml에 업로드 다운로드 관련 빈 생성
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="1000000" />
+	</beans:bean> 
+	<beans:bean id="fileDownloadView" class="common.FileDownloadView"/>
+	<beans:bean id="fileViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"/>
+	</beans:bean>
+
+3. 요청명에 따른 컨트롤러를 생성
+	- 업로드 폼, 업로드 처리 등을 진행
+	- 파일명 변경을 위해 UUID클래스를 통한 유니크한 문자열 생성
+	
+4. 파일 이외의 나머지 폼값을 확인하는 페이지 작성
+
+5. 파일 다운로드를 위해 빈을 생성할 때는 미리
+	common.FileDownloadView 클래스가 생성되어 있어야 한다.
+	응답헤더와 스트림을 통해 파일을 다운로드 하기 위한 로직으로 구성된다.
+-->
     <h3>파일업로드</h3>
     <li>
     	<a href="./fileUpload/uploadPath.do" target="_blank">
