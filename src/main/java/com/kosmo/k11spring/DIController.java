@@ -19,7 +19,7 @@ public class DIController {
 	
 	//DI를 이용한 간단한 사칙연산 계산기 만들기
 	@RequestMapping("/di/myCalculator")
-	public String myCal(Model model) {
+	public String myCal(Model model) { 
 		
 		/*
 		ApplicationContext 파일의 위치를 문자열에 저장한다.
