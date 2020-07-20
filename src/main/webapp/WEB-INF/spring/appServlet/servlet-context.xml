@@ -93,7 +93,7 @@
 	
 	
 	
-	<!-- 대부도
+	<!--
 	2. 트랜잭션 템플릿을 이용하기 위한 빈 생성
 		dataSource -> transactionManager -> transactionTemplate -> template => TransactionDAO
 	 -->
